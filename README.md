@@ -1,2 +1,28 @@
 # self-driving-car-neural-network
-Self-driving car simulator built with NumPy and PyGame. Each car is controlled by a small neural network that takes in five distance sensors plus its current speed and steering and acceleration commands. The cars improve through a natural-selection-style evolutionary algorithm that evolves their weights and biases over generations of 60 cars
+This project is a self-driving car simulator built entirely with NumPy and PyGame. Each car is controlled by a small neural network that takes in five distance sensors plus its current speed and outputs a vector telling the car steering and acceleration commands (Use the left/right arrow keys to see a visualization of what the cars can "see"). The cars improve through a natural-selection-style evolutionary algorithm that evolves their weights and biases over generations of 60 cars each. The system includes variable mutation rates, crossover, sensor visualization, dynamic speed-based rendering, and custom track generators. After enough iterations, the evolved behavior starts to resemble a tiny F1 race simulation, very cool to see!
+
+(Open the NaturalSelectionCar.py file)
+Controls
+ - Left / Right Arrow = Toggle sensor visualization
+ - Up Arrow = Increase simulation speed
+ - Down Arrow = Decrease simulation speed
+ - ESC / Close Window = Quit
+
+How It Works:
+
+Sensors:
+Each car casts 5 rays (front, left, right, and two diagonals) plus its current speed, normalized to 0–1.
+
+Neural Network:
+A small feed-forward NN (6 → 4 → 2) outputs:
+
+
+Evolutionary Loop After each generation:
+ - Cars are ranked by distance traveled
+ - The top performers are kept
+ - Offspring are generated with mutation and optional crossover
+ - Cars reset and the next generation begins
+
+Visualization:
+Cars are rendered with color gradients based on speed, and optional sensor rays.
+Tracks can be custom-generated or loaded from images.
