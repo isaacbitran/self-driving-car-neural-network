@@ -6,23 +6,18 @@ Controls
  - Left / Right Arrow = Toggle sensor visualization
  - Up Arrow = Increase simulation speed
  - Down Arrow = Decrease simulation speed
- - ESC / Close Window = Quit
 
 How It Works:
 
 Sensors:
-Each car casts 5 rays (front, left, right, and two diagonals) plus its current speed, normalized to 0–1.
+(Left and Right arrows toggle sensor visualization)
+Each car has 5 rays (front, left, right, and two diagonals) plus its current speed, normalized to 0–1.
 
 Neural Network:
 A small feed-forward NN (6 → 4 → 2) outputs:
 
-
 Evolutionary Loop After each generation:
  - Cars are ranked by distance traveled
- - The top performers are kept
+ - The top performers are kept (top 50%)
  - Offspring are generated with mutation and optional crossover
  - Cars reset and the next generation begins
-
-Visualization:
-Cars are rendered with color gradients based on speed, and optional sensor rays.
-Tracks can be custom-generated or loaded from images.
